@@ -8,8 +8,9 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
 import useSearch from "../hooks/useSearch";
-import { useState } from "react";
+import useAuth from "../hooks/useAuth";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -54,6 +55,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
   const searchInput = useSearch().keyword;
   const setSearchInput = useSearch().change;
+  const isLogin = useAuth();
+  console.log(isLogin);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -95,8 +98,22 @@ export default function PrimarySearchAppBar() {
             </Box>
 
             <Box display="inline-flex" alignItems="center">
+              <Typography
+                variant="body2"
+                noWrap
+                component="div"
+                sx={{ display: { xs: "none", sm: "block" } }}
+              >
+                {isLogin.isAuthenticated === false
+                  ? ""
+                  : `${isLogin.user.username}`}
+              </Typography>
               <IconButton size="large" color="inherit">
-                <LoginIcon />
+                {isLogin.isAuthenticated === false ? (
+                  <LoginIcon />
+                ) : (
+                  <LogoutIcon />
+                )}
               </IconButton>
               <Typography
                 variant="body2"
@@ -104,7 +121,7 @@ export default function PrimarySearchAppBar() {
                 component="div"
                 sx={{ display: { xs: "none", sm: "block" } }}
               >
-                Sign in
+                {isLogin.isAuthenticated === false ? "Sign in" : `Sign out`}
               </Typography>
             </Box>
           </Box>

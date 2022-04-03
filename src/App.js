@@ -8,8 +8,6 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import LoginModal from "./Pages/LoginModal";
 import AuthRequire from "./contexts/AuthRequire";
 import JobModal from "./Pages/JobModal";
-import { useState } from "react";
-import SearchContextProvider from "./contexts/SearchContext";
 
 function App() {
   const location = useLocation();
