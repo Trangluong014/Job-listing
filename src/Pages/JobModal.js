@@ -28,7 +28,7 @@ export default function JobModal() {
   const from = location.state?.from?.pathname || "/";
 
   const [open, setOpen] = React.useState(true);
-  const handleOpen = () => setOpen(true);
+  // const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     navigate(from, { replace: true });

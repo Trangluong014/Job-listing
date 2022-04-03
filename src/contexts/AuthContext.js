@@ -42,7 +42,9 @@ function AuthProvider({ children }) {
 
   const logout = async (callback) => {
     dispatch({ type: LOGOUT });
-    callback();
+    if (callback) {
+      callback();
+    }
   };
 
   return (

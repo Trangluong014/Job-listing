@@ -11,6 +11,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import useSearch from "../hooks/useSearch";
 import useAuth from "../hooks/useAuth";
+import { Link, useLocation } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -53,10 +54,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const location = useLocation();
   const searchInput = useSearch().keyword;
   const setSearchInput = useSearch().change;
   const isLogin = useAuth();
-  console.log(isLogin);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -108,9 +110,19 @@ export default function PrimarySearchAppBar() {
                   ? ""
                   : `${isLogin.user.username}`}
               </Typography>
-              <IconButton size="large" color="inherit">
+              <IconButton
+                size="large"
+                color="inherit"
+                onClick={() => {
+                  return isLogin.isAuthenticated === false
+                    ? null
+                    : isLogin.logout();
+                }}
+              >
                 {isLogin.isAuthenticated === false ? (
-                  <LoginIcon />
+                  <Link to={`/login`} state={{ backgroundLocation: location }}>
+                    <LoginIcon />{" "}
+                  </Link>
                 ) : (
                   <LogoutIcon />
                 )}
@@ -121,7 +133,7 @@ export default function PrimarySearchAppBar() {
                 component="div"
                 sx={{ display: { xs: "none", sm: "block" } }}
               >
-                {isLogin.isAuthenticated === false ? "Sign in" : `Sign out`}
+                {isLogin.isAuthenticated === false ? "Sign In" : `Sign Out`}
               </Typography>
             </Box>
           </Box>

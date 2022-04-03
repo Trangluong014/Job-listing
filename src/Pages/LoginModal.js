@@ -40,7 +40,7 @@ export default function LoginModal() {
   const from = location.state?.from?.pathname || "/";
 
   const [open, setOpen] = React.useState(true);
-  const handleOpen = () => setOpen(true);
+  // const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const onSubmit = (data) => {
