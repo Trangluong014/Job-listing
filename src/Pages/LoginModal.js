@@ -5,13 +5,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useForm } from "react-hook-form";
-import FormProvider from "../components/form/FormProvider";
-import FTextField from "../components/form/FTextField";
 import { IconButton, InputAdornment, Stack, Button } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import useAuth from "../hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
+import FormProvider from "../component/form/FormProvider";
+import FTextField from "../component/form/FTextField";
 
 const style = {
   position: "absolute",

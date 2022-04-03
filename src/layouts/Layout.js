@@ -1,12 +1,16 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import PrimarySearchAppBar from "../component/Appbar";
+import SearchContextProvider from "../contexts/SearchContext";
+import useSearch from "../hooks/useSearch";
 
 function Layout() {
   return (
     <>
-      <PrimarySearchAppBar />
-      <Outlet />
+      <SearchContextProvider>
+        <PrimarySearchAppBar />
+        <Outlet />
+      </SearchContextProvider>
     </>
   );
 }

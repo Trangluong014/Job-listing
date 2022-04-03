@@ -1,14 +1,15 @@
-import { Container } from "@mui/material";
 import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
-import AuthRequire from "./contexts/AuthRequire";
 import Layout from "./layouts/Layout";
-import HomePage from "./pages/HomePage";
-import JobModal from "./pages/JobModal";
-import LoginModal from "./pages/LoginModal";
-import NotFoundPage from "./pages/NotFoundPage";
+import HomePage from "./Pages/HomePage";
+import NotFoundPage from "./Pages/NotFoundPage";
+import LoginModal from "./Pages/LoginModal";
+import AuthRequire from "./contexts/AuthRequire";
+import JobModal from "./Pages/JobModal";
+import { useState } from "react";
+import SearchContextProvider from "./contexts/SearchContext";
 
 function App() {
   const location = useLocation();

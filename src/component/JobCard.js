@@ -21,8 +21,9 @@ function JobCard({ job }) {
           <Box
             sx={{ display: "flex", justifyContent: "flex-start", mt: 1, mb: 2 }}
           >
-            {job.skills.slice(0, 4).map((skill) => (
+            {job.skills.slice(0, 4).map((skill, index) => (
               <Chip
+                key={index}
                 label={skill}
                 className="job-skill"
                 color="error"

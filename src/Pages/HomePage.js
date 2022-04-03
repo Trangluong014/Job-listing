@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-import JobList from "../components/JobList";
+import JobList from "../component/JobList";
 import jobs from "../data.json";
 
 function HomePage() {

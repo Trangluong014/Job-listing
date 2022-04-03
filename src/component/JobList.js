@@ -2,10 +2,13 @@ import { Grid, Pagination } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 import JobCard from "./JobCard";
+import useSearch from "../hooks/useSearch";
 
 const limit = 5;
 
-function JobList({ jobs }) {
+function JobList() {
+  const jobs = useSearch().arr;
+  console.log(jobs);
   const [page, setPage] = useState(1);
   const handleChange = (event, value) => {
     setPage(value);
