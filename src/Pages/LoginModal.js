@@ -23,6 +23,7 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  color: "white",
 };
 
 const defaultValues = {
@@ -57,7 +58,12 @@ export default function LoginModal() {
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
+        <Typography
+          id="modal-modal-title"
+          variant="h6"
+          component="h2"
+          align="center"
+        >
           Login
         </Typography>
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
@@ -86,8 +92,8 @@ export default function LoginModal() {
                 ),
               }}
             />
-            <Button type="submit" variant="contained">
-              Submit
+            <Button type="submit" variant="contained" color="error">
+              SIGN IN
             </Button>
           </Stack>
         </FormProvider>
